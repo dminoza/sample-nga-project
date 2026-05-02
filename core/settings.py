@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'app.his.patient_registration'
+
 ]
 
 MIDDLEWARE = [
