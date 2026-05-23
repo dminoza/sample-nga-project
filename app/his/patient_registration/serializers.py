@@ -39,13 +39,16 @@ class PatientInformationSerializer(serializers.ModelSerializer):
         hmo_list = validated_data.pop('patienthmo_set', [])
         list_of_hmo = []
         for hmo in hmo_list:
-            PatientHMO.objects.create(
+            PatientHMO.objects.get_or_create(
                 insurance_name=hmo['insurance_name'],
                 member_number=hmo['member_number'],
                 patient=patient_information
             )
 
         return patient_information 
+
+    def update(self, instance):
+
 
     def delete(self):
         instance = self.instance
